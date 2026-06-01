@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiMail, FiLinkedin, FiGithub, FiInstagram } from 'react-icons/fi';
+import ScrollReveal from './ScrollReveal';
 
 const socials = [
   {
@@ -36,8 +37,8 @@ const SocialCard = ({ icon, label, value, href, color }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a
-      href={href}
+    
+      <a href={href}
       target="_blank"
       rel="noreferrer"
       onMouseEnter={() => setHovered(true)}
@@ -56,7 +57,6 @@ const SocialCard = ({ icon, label, value, href, color }) => {
         cursor: 'pointer',
       }}
     >
-      {/* Tag */}
       <span style={{
         fontSize: '0.7rem',
         color: color,
@@ -66,7 +66,6 @@ const SocialCard = ({ icon, label, value, href, color }) => {
         // {label}
       </span>
 
-      {/* Icon + Value row */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
         <span style={{ color: color, fontSize: '1.2rem', display: 'flex' }}>
           {icon}
@@ -81,7 +80,6 @@ const SocialCard = ({ icon, label, value, href, color }) => {
         </span>
       </div>
 
-      {/* Arrow */}
       <span style={{
         color: color,
         opacity: hovered ? 0.8 : 0.2,
@@ -114,31 +112,33 @@ const Contact = () => {
       padding: '6rem 2rem 4rem',
     }}>
 
-      {/* Header — same as Projects */}
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <p style={{
-          color: '#61dca3', opacity: 0.6,
-          fontSize: '0.85rem', marginBottom: '0.4rem',
-          fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          $ ping pavni --connect
-        </p>
-        <h2 style={{
-          color: '#fff', fontSize: '2rem',
-          fontWeight: 800, fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          Get In Touch
-        </h2>
-        <p style={{
-          color: '#61dca3', opacity: 0.4,
-          fontSize: '0.8rem', marginTop: '0.5rem',
-          fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          &gt; always open to new opportunities, collabs, or just a chat.
-        </p>
-      </div>
+      {/* Header */}
+      <ScrollReveal direction="up">
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <p style={{
+            color: '#61dca3', opacity: 0.6,
+            fontSize: '0.85rem', marginBottom: '0.4rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            $ ping pavni --connect
+          </p>
+          <h2 style={{
+            color: '#fff', fontSize: '2rem',
+            fontWeight: 800, fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            Get In Touch
+          </h2>
+          <p style={{
+            color: '#61dca3', opacity: 0.4,
+            fontSize: '0.8rem', marginTop: '0.5rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            &gt; always open to new opportunities, collabs, or just a chat.
+          </p>
+        </div>
+      </ScrollReveal>
 
-      {/* Cards grid — same as Projects */}
+      {/* Cards grid — each card staggered */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -147,55 +147,65 @@ const Contact = () => {
         maxWidth: '1000px',
         marginBottom: '2rem',
       }}>
-        {socials.map(s => (
-          <SocialCard key={s.label} {...s} />
+        {socials.map((s, index) => (
+          <ScrollReveal
+            key={s.label}
+            delay={index * 0.1}
+            direction={index % 2 === 0 ? 'left' : 'right'}
+          >
+            <SocialCard {...s} />
+          </ScrollReveal>
         ))}
       </div>
 
-      {/* Copy email — styled like a project card */}
-      <div
-        onClick={handleCopyEmail}
-        style={{
-          width: '100%',
-          maxWidth: '1000px',
-          padding: '1.25rem 1.5rem',
-          borderRadius: '12px',
-          border: `1px solid ${copied ? '#61dca355' : 'rgba(255,255,255,0.08)'}`,
-          background: copied ? 'rgba(97,220,163,0.06)' : 'rgba(255,255,255,0.02)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          cursor: 'pointer',
-          transition: 'all 0.3s ease',
-          boxShadow: copied ? '0 0 20px rgba(97,220,163,0.1)' : 'none',
-        }}
-      >
-        <span style={{
-          color: '#61dca3', opacity: 0.5,
-          fontSize: '0.8rem',
-          fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          $ quick_copy --email
-        </span>
-        <span style={{
-          color: copied ? '#61dca3' : '#fff',
-          fontSize: '0.85rem',
-          fontFamily: 'JetBrains Mono, monospace',
-          transition: 'color 0.3s',
-        }}>
-          {copied ? '✓ copied to clipboard!' : '> copy email address'}
-        </span>
-      </div>
+      {/* Copy email */}
+      <ScrollReveal direction="up" delay={0.4}>
+        <div
+          onClick={handleCopyEmail}
+          style={{
+            width: '100%',
+            maxWidth: '1000px',
+            padding: '1.25rem 1.5rem',
+            borderRadius: '12px',
+            border: `1px solid ${copied ? '#61dca355' : 'rgba(255,255,255,0.08)'}`,
+            background: copied ? 'rgba(97,220,163,0.06)' : 'rgba(255,255,255,0.02)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: copied ? '0 0 20px rgba(97,220,163,0.1)' : 'none',
+          }}
+        >
+          <span style={{
+            color: '#61dca3', opacity: 0.5,
+            fontSize: '0.8rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            $ quick_copy --email
+          </span>
+          <span style={{
+            color: copied ? '#61dca3' : '#fff',
+            fontSize: '0.85rem',
+            fontFamily: 'JetBrains Mono, monospace',
+            transition: 'color 0.3s',
+          }}>
+            {copied ? '✓ copied to clipboard!' : '> copy email address'}
+          </span>
+        </div>
+      </ScrollReveal>
 
       {/* Footer */}
-      <p style={{
-        color: '#61dca3', opacity: 0.2,
-        fontSize: '0.7rem', textAlign: 'center',
-        marginTop: '3rem',
-        fontFamily: 'JetBrains Mono, monospace',
-      }}>
-        
-      </p>
+      <ScrollReveal direction="up" delay={0.5}>
+        <p style={{
+          color: '#61dca3', opacity: 0.2,
+          fontSize: '0.7rem', textAlign: 'center',
+          marginTop: '3rem',
+          fontFamily: 'JetBrains Mono, monospace',
+        }}>
+          made with {'<3'} by pavni arora
+        </p>
+      </ScrollReveal>
 
     </section>
   );

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import ScrollReveal from './ScrollReveal';
 
 const projects = [
   {
@@ -34,6 +35,16 @@ const projects = [
   },
   {
     id: 4,
+    title: 'FotoForFun',
+    tag: 'Web Development',
+    description: 'A browser-based photo booth that captures 3 shots with live filters and assembles them into a downloadable vintage 35mm film strip.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'ReactJS'],
+    github: 'https://github.com/PavniArora16/FotoForFun',
+    live: 'https://foto-for-fun.vercel.app/',
+    color: '#a29bfe',
+  },
+  {
+    id: 5,
     title: 'Hangman Game',
     tag: 'Python Project',
     description: 'Designed structured control flow and efficient string handling for game logic. Implemented win/loss state management and robust input validation.',
@@ -43,7 +54,7 @@ const projects = [
     color: '#febc2e',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Priority-Based Emergency Interrupt System',
     tag: 'CAO Course Project',
     description: 'Designed a hardware-software system to simulate priority-based interrupt handling using Arduino. Modeled real-time emergency scenarios with multi-level priorities using LEDs and buzzer alerts.',
@@ -51,16 +62,6 @@ const projects = [
     github: '',
     live: '',
     color: '#ff9f43',
-  },
-  {
-    id: 6,
-    title: 'E-Shopping Cart',
-    tag: 'Web Technologies Project',
-    description: 'Developed a responsive e-commerce web application with an interactive product catalog and shopping cart. Implemented dynamic cart management including item addition, removal, quantity updates, and real-time price calculation.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'AJAX', 'AngularJS', 'ExpressJS', 'Node.js'],
-    github: '',
-    live: '',
-    color: '#a29bfe',
   },
 ];
 
@@ -86,17 +87,46 @@ const ProjectCard = ({ project }) => {
     >
       {/* Top row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <div>
-          <span style={{
-            fontSize: '0.7rem',
-            color: project.color,
-            opacity: 0.8,
-            fontFamily: 'JetBrains Mono, monospace',
-            marginBottom: '0.3rem',
-            display: 'block',
-          }}>
-            // {project.tag}
-          </span>
+        <div style={{ flex: 1 }}>
+
+          {/* Tag + live badge row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+            <span style={{
+              fontSize: '0.7rem',
+              color: project.color,
+              opacity: 0.8,
+              fontFamily: 'JetBrains Mono, monospace',
+            }}>
+              // {project.tag}
+            </span>
+
+            {/* Blinking live badge */}
+            {project.live && (
+              <span style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                fontSize: '0.6rem',
+                color: '#ff4444',
+                fontFamily: 'JetBrains Mono, monospace',
+                background: 'rgba(255,68,68,0.1)',
+                border: '1px solid rgba(255,68,68,0.3)',
+                borderRadius: '999px',
+                padding: '0.1rem 0.5rem',
+              }}>
+                <span style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: '50%',
+                  background: '#ff4444',
+                  display: 'inline-block',
+                  animation: 'liveBlink 1.2s ease-in-out infinite',
+                }} />
+                LIVE
+              </span>
+            )}
+          </div>
+
           <h3 style={{
             color: '#fff',
             fontSize: '1rem',
@@ -180,29 +210,39 @@ const Projects = () => {
       padding: '6rem 2rem 4rem',
     }}>
 
+      {/* Blink keyframe */}
+      <style>{`
+        @keyframes liveBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.2; }
+        }
+      `}</style>
+
       {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <p style={{
-          color: '#61dca3', opacity: 0.6,
-          fontSize: '0.85rem', marginBottom: '0.4rem',
-          fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          $ ls ./projects
-        </p>
-        <h2 style={{
-          color: '#fff', fontSize: '2rem',
-          fontWeight: 800, fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          Projects
-        </h2>
-        <p style={{
-          color: '#61dca3', opacity: 0.4,
-          fontSize: '0.8rem', marginTop: '0.5rem',
-          fontFamily: 'JetBrains Mono, monospace',
-        }}>
-          &gt; {projects.length} projects found
-        </p>
-      </div>
+      <ScrollReveal>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <p style={{
+            color: '#61dca3', opacity: 0.6,
+            fontSize: '0.85rem', marginBottom: '0.4rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            $ ls ./projects
+          </p>
+          <h2 style={{
+            color: '#fff', fontSize: '2rem',
+            fontWeight: 800, fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            Projects
+          </h2>
+          <p style={{
+            color: '#61dca3', opacity: 0.4,
+            fontSize: '0.8rem', marginTop: '0.5rem',
+            fontFamily: 'JetBrains Mono, monospace',
+          }}>
+            &gt; {projects.length} projects found
+          </p>
+        </div>
+      </ScrollReveal>
 
       {/* Grid */}
       <div style={{
@@ -212,8 +252,14 @@ const Projects = () => {
         width: '100%',
         maxWidth: '1000px',
       }}>
-        {projects.map(project => (
-          <ProjectCard key={project.id} project={project} />
+        {projects.map((project, index) => (
+          <ScrollReveal
+            key={project.id}
+            delay={index * 0.1}
+            direction={index % 2 === 0 ? 'left' : 'right'}
+          >
+            <ProjectCard project={project} />
+          </ScrollReveal>
         ))}
       </div>
 
