@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 
 const Hero = () => {
   const [displayed, setDisplayed] = useState('');
@@ -20,18 +21,38 @@ const Hero = () => {
       justifyContent: 'center', alignItems: 'center', textAlign: 'center',
       padding: '2rem'
     }}>
-      <p style={{ color: '#61dca3', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-      </p>
-      <h1 style={{
-        fontSize: 'clamp(2.5rem, 8vw, 6rem)',
-        color: '#fff', fontWeight: 800,
-        letterSpacing: '0.1em', marginBottom: '1rem'
-      }}>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        style={{ color: '#61dca3', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}
+      >
+        $ whoami
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        style={{
+          fontSize: 'clamp(2.5rem, 8vw, 6rem)',
+          color: '#fff', fontWeight: 800,
+          letterSpacing: '0.1em', marginBottom: '1rem'
+        }}
+      >
         PAVNI ARORA
-      </h1>
-      <p style={{ color: '#61dca3', fontSize: '1.1rem', minHeight: '1.5em' }}>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        style={{ color: '#61dca3', fontSize: '1.1rem', minHeight: '1.5em' }}
+      >
         &gt; {displayed}<span className="blink">█</span>
-      </p>
+      </motion.p>
+
     </section>
   );
 };
