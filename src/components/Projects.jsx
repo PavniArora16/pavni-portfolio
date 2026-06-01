@@ -29,7 +29,7 @@ const projects = [
     tag: 'Computer Vision',
     description: 'Developed a real-time gesture-controlled Snake game using computer vision techniques. Implemented hand tracking via webcam for smooth and responsive gameplay.',
     tech: ['Python', 'OpenCV'],
-    github: '',
+    github: 'https://github.com/PavniArora16/Nagini_Game',
     live: '',
     color: '#61b3dc',
   },
