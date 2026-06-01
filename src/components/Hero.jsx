@@ -28,7 +28,7 @@ const Hero = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
         style={{ color: '#61dca3', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}
       >
-        $ whoami
+    
       </motion.p>
 
       <motion.h1
