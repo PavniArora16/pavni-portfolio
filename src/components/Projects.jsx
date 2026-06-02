@@ -18,7 +18,7 @@ const projects = [
     title: 'Huffman Coding',
     tag: 'File Compression Tool',
     description: 'Implemented Huffman Encoding algorithm for efficient lossless file compression using variable-length codes. Built frequency maps, binary trees, and encoding/decoding logic using core data structures.',
-    tech: ['Python', 'DSA', 'Greedy Algorithms'],
+    tech: ['C', 'DSA', 'Greedy Algorithms'],
     github: '',
     live: '',
     color: '#61dca3',
