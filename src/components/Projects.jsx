@@ -49,7 +49,7 @@ const projects = [
     tag: 'Python Project',
     description: 'Designed structured control flow and efficient string handling for game logic. Implemented win/loss state management and robust input validation.',
     tech: ['Python'],
-    github: '',
+    github: 'https://github.com/PavniArora16/HangmanGame',
     live: '',
     color: '#febc2e',
   },
