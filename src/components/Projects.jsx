@@ -55,7 +55,7 @@ const projects = [
   },
   {
     id: 6,
-    title: 'Priority-Based Emergency Interrupt System',
+    title: 'Priority-Based Interrupt System',
     tag: 'CAO Course Project',
     description: 'An Arduino-based system to simulate priority interrupt handling for real-time emergency scenarios using LEDs and buzzer alerts.',
     tech: ['Arduino', 'Embedded Systems', 'Python', 'PySerial'],
