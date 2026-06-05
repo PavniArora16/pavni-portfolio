@@ -27,7 +27,7 @@ const projects = [
     id: 3,
     title: 'Sketch2Code',
     tag: 'Design Tool',
-    description: 'Sketch2Code lets you draw UI components directly on a canvas and instantly generates production-ready code. No more guessing pixel values!! Just draw a button, card, or input field and get clean code ready to copy into your project.',
+    description: 'Sketch2Code lets you draw UI components directly on a canvas and instantly generates production-ready code. Just draw an element and get clean code ready to copy into your project.',
     tech: ['ReactJS', 'Tailwind CSS', 'Canvas', 'Code Generation'],
     github: 'https://github.com/PavniArora16/Sketch2Code',
     live: 'https://sketch2-code-seven.vercel.app/',
