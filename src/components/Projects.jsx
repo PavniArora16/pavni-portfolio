@@ -226,7 +226,7 @@ const Projects = () => {
             fontSize: '0.85rem', marginBottom: '0.4rem',
             fontFamily: 'JetBrains Mono, monospace',
           }}>
-            $ ls ./projects
+            
           </p>
           <h2 style={{
             color: '#fff', fontSize: '2rem',

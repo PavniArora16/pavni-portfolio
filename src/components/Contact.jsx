@@ -120,7 +120,6 @@ const Contact = () => {
             fontSize: '0.85rem', marginBottom: '0.4rem',
             fontFamily: 'JetBrains Mono, monospace',
           }}>
-            $ ping pavni --connect
           </p>
           <h2 style={{
             color: '#fff', fontSize: '2rem',
@@ -203,7 +202,6 @@ const Contact = () => {
           marginTop: '3rem',
           fontFamily: 'JetBrains Mono, monospace',
         }}>
-          made with {'<3'} by pavni arora
         </p>
       </ScrollReveal>
 

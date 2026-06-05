@@ -7,7 +7,6 @@ const About = () => (
 
       <ScrollReveal direction="left">
         <p style={{ opacity: 0.5, marginBottom: '0.5rem', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem' }}>
-          $ cat about.txt
         </p>
       </ScrollReveal>
 
