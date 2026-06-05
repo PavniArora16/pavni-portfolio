@@ -84,6 +84,7 @@ const ProjectCard = ({ project }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
+        height:'100%',
         background: hovered ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
         border: `1px solid ${hovered ? project.color + '55' : 'rgba(255,255,255,0.08)'}`,
         borderRadius: '12px',
@@ -97,7 +98,7 @@ const ProjectCard = ({ project }) => {
       }}
     >
       {/* Top row */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'stretch' }}>
         <div style={{ flex: 1 }}>
 
           {/* Tag + live badge row */}
@@ -268,6 +269,7 @@ const Projects = () => {
             key={project.id}
             delay={index * 0.1}
             direction={index % 2 === 0 ? 'left' : 'right'}
+            style={{ height: '100%'}}
           >
             <ProjectCard project={project} />
           </ScrollReveal>

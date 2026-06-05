@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-const ScrollReveal = ({ children, delay = 0, direction = 'up' }) => {
+const ScrollReveal = ({ children, delay = 0, direction = 'up', style = {} }) => {
   const variants = {
     up:    { initial: { opacity: 0, y: 40 },  animate: { opacity: 1, y: 0 } },
     down:  { initial: { opacity: 0, y: -40 }, animate: { opacity: 1, y: 0 } },
@@ -13,6 +13,7 @@ const ScrollReveal = ({ children, delay = 0, direction = 'up' }) => {
 
   return (
     <motion.div
+      style={style}
       initial={initial}
       whileInView={animate}
       viewport={{ once: false, amount: 0.15 }}
