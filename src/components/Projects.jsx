@@ -9,8 +9,8 @@ const projects = [
     tag: 'SIH Project',
     description: 'Developed a deepfake detection system to identify AI-generated images and videos. Trained a machine learning model on image datasets to classify real vs manipulated media.',
     tech: ['Python', 'Computer Vision', 'Deep Learning'],
-    github: '',
-    live: '',
+    github: 'https://github.com/PavniArora16/Deepfake',
+    live: 'https://deepshield-from-deepfake.streamlit.app/',
     color: '#ff6b6b',
   },
   {
