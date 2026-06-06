@@ -151,7 +151,7 @@ const Experience = () => {
         fit={0.75}
         minRadius={650}
         maxVerticalRotationDeg={0}
-        segments={26}
+        segments={32}
         dragDampening={2.4}
         grayscale={false}
         overlayBlurColor="transparent"
