@@ -30,7 +30,7 @@ const projects = [
     description: 'Sketch2Code lets you draw UI components directly on a canvas and instantly generates production-ready code. Just draw an element and get clean code ready to copy into your project.',
     tech: ['ReactJS', 'Tailwind CSS', 'Code Generation'],
     github: 'https://github.com/PavniArora16/Sketch2Code',
-    live: 'https://sketch2-code-seven.vercel.app/',
+    live: 'https://sketch2-code-higzrm85j-pavni-s-projects.vercel.app/',
     color: '#ff00ff',
   },
   {
