@@ -61,7 +61,7 @@ const projects = [
     tech: ['Python'],
     github: 'https://github.com/PavniArora16/HangmanGame',
     live: '',
-    color: '#febc2e',
+    color: '#f6ff00',
   },
   {
     id: 7,
