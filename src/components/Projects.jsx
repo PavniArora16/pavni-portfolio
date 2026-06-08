@@ -11,7 +11,7 @@ const projects = [
     tech: ['Python', 'Computer Vision', 'Deep Learning'],
     github: 'https://github.com/PavniArora16/Deepfake',
     live: 'https://deepshield-from-deepfake.streamlit.app/',
-    color: '#ff6b6b',
+    color: '#df6363',
   },
   {
     id: 2,
