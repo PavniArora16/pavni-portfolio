@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*0123456789';
+const CHARS = '!@#$&*0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const GlitchName = ({ text = 'PAVNI ARORA', style = {} }) => {
   const [displayed, setDisplayed] = useState(text);
